@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 	$('form').validator();
 
-	$.getJSON( "http://www.json-generator.com/api/json/get/bZTcBnsIgO", function( json ) {
+	$.getJSON( "//www.json-generator.com/api/json/get/bZTcBnsIgO", function( json ) {
 
 		$.each(json, function( index ) {
 	  		$('table tbody').append('<tr><td>' + json[index].title +
