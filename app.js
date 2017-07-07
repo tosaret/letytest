@@ -31,7 +31,7 @@ $(window).on('hashchange', function() {
 function sectionShow(id) {
 	$('.section').addClass('hidden');
 	$(id).toggleClass('hidden');
-	if ( id == '#shops' && localStorage.getItem('loggedIn') != true || id == '' ) {
+	if ( id == '#shops' && localStorage.getItem('loggedIn') != 'logged') {
 		showLogin();
 	}
 }
@@ -43,7 +43,6 @@ function showLogin() {
 function userRegister() {
 	localStorage.setItem('login', login.val());
 	localStorage.setItem('password', password.val());
-	showLogin();
 }
 
 function userLogin() {
@@ -53,10 +52,11 @@ function userLogin() {
 	var enteredPassword = $('#password');
 
 	if ( enteredLogin.val() == regLogin && enteredPassword.val() == regPassword ) {
-		var loggedIn = localStorage.setItem('loggedIn', true);
+		var loggedIn = localStorage.setItem('loggedIn', 'logged');
 		sectionShow('#shops');
 		window.location.hash = '#shops';
 	} else {
+		var loggedIn = localStorage.setItem('loggedIn', false);
 		alert('Wrong username or password! Please try again.');
 	}
 }
